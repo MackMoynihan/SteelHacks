@@ -30,10 +30,11 @@ public class Design extends AppCompatActivity {
 
         Intent intent = getIntent();
         String projName = intent.getStringExtra(MainActivity.PROJ_NAME_EXTRA);
-        TextView projNameView = new TextView(this);
-        projNameView.setTextSize(40); // TODO look up TextView documentation to make it look better
-        projNameView.setText(projName);
-        layout.addView(projNameView);
+
+//        TextView projNameView = new TextView(this);
+//        projNameView.setTextSize(40); // TODO look up TextView documentation to make it look better
+//        projNameView.setText(projName);
+//        layout.addView(projNameView);
     }
 
 

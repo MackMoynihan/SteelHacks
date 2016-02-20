@@ -12,12 +12,13 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 
 public class MainActivity extends AppCompatActivity {
-    public final static String PROJ_NAME_EXTRA = "com.example.yijinkang.demode.PROJ_NAME";
+    public final static String PROJ_NAME_EXTRA = "Demode";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 //        FloatingActionButton imageButton = (FloatingActionButton)findViewById(R.id.imageButton);
 //        imageButton.setOnClickListener(new View.OnClickListener() {
