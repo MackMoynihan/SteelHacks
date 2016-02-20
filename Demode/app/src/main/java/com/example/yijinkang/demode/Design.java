@@ -1,23 +1,15 @@
 package com.example.yijinkang.demode;
 
-import java.util.Locale;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.view.Gravity;
-import android.view.LayoutInflater;
+import android.view.DragEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.content.Intent;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,7 +22,7 @@ public class Design extends AppCompatActivity {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.design);
 
         Intent intent = getIntent();
-        String projName = intent.getStringExtra(MainActivity.PROJ_NAME_EXTRA);
+        String projName = intent.getStringExtra("Project Name");
 
         ImageButton imageButton = (ImageButton) findViewById(R.id.imageButton);
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +59,13 @@ public class Design extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public boolean onDragEvent(DragEvent event) {
+        // TODO exit the popup and do stuff with the dragged thing
+        int contents = event.describeContents();
+
+        return true;
     }
 
 }

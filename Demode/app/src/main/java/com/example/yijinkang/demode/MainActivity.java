@@ -15,7 +15,6 @@ import android.widget.ImageButton;
 import android.widget.ScrollView;
 
 public class MainActivity extends AppCompatActivity {
-    public final static String PROJ_NAME_EXTRA = "Demode";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Design.class);
         EditText projName = (EditText) findViewById(R.id.projName);
         String newProjName = projName.getText().toString();
-        intent.putExtra(PROJ_NAME_EXTRA, newProjName);
+        intent.putExtra("Project Name", newProjName);
         startActivity(intent);
     }
 
