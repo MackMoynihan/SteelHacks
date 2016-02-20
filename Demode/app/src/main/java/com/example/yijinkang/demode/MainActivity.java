@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+    public final static String PROJ_NAME_EXTRA = "com.example.yijinkang.demode.PROJ_NAME";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
     public void startNewProject(View view) {
         Intent intent = new Intent(this, Design.class);
         EditText projName = (EditText) findViewById(R.id.projName);
+        String newProjName = projName.getText().toString();
+        intent.putExtra(PROJ_NAME_EXTRA, newProjName);
+        startActivity(intent);
     }
 
     public void openSavedProject(View view) {
