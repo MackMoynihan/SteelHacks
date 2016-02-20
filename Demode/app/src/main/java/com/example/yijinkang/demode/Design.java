@@ -1,8 +1,11 @@
 package com.example.yijinkang.demode;
 
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -61,11 +64,20 @@ public class Design extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public boolean onDragEvent(DragEvent event) {
-        // TODO exit the popup and do stuff with the dragged thing
-        int contents = event.describeContents();
+    BroadcastReceiver rec = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            int x = intent.getIntExtra("xCoord", -1);
+            int y = intent.getIntExtra("yCoord", -1);
+            // TODO how to receive the image?
 
-        return true;
-    }
+            if (x != -1 && y != -1) {
+                // TODO put the image down at the proper coordinates
+                Log.d("coord", "received nonneg");
+            } else if (x == 0 && y == 0) {
+                Log.d("coord", "received zeroes");
+            }
+        }
+    };
 
 }
