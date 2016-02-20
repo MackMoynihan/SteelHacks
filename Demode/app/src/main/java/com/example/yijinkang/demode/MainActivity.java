@@ -1,5 +1,7 @@
 package com.example.yijinkang.demode;
 
+import android.annotation.TargetApi;
+import android.os.Build;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ScrollView;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,13 +23,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-//        FloatingActionButton imageButton = (FloatingActionButton)findViewById(R.id.imageButton);
-//        imageButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                ScrollView scrollView = new
-//            }
-//        });
+
 //        FloatingActionButton imageButton4 = (FloatingActionButton)findViewById(R.id.imageButton4);
 //        imageButton4.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -48,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 //
 //            }
 //        });
+
 
     }
 

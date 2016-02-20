@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,6 +32,14 @@ public class Design extends AppCompatActivity {
         Intent intent = getIntent();
         String projName = intent.getStringExtra(MainActivity.PROJ_NAME_EXTRA);
 
+        ImageButton imageButton = (ImageButton) findViewById(R.id.imageButton);
+        imageButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Design.this , Pop.class) );
+            }
+        });
 //        TextView projNameView = new TextView(this);
 //        projNameView.setTextSize(40); // TODO look up TextView documentation to make it look better
 //        projNameView.setText(projName);
