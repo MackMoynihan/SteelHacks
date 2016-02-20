@@ -3139,7 +3139,7 @@
 			}
 
 			.spotlights > section > .content {
-				padding: 3em 2em 1em 2em ;
+				padding: 6em 4em 2em 4em ;
 			}
 
 		}
@@ -3597,13 +3597,9 @@
 				position: relative;
 			}
 				
-				#sidebar nav>ul>li2 {
-							display: inline;
-							height: inherit;
-							line-height: inherit;
-							vertical-align: left;
-							padding: 0;
-							float: left;
+				#sidebar li2 {
+							position: absolute;
+							left: 16px;
 						}
 
 				#sidebar nav > ul > li:first-child {
