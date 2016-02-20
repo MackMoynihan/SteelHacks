@@ -3578,17 +3578,10 @@
 			}
 
 		#sidebar nav > ul {
-			list-style: none;
+			list-style: inline;
 			padding: 0;
 		}
-				#sidebar nav>ul>li2 {
-							display: block;
-							height: inherit;
-							line-height: inherit;
-							margin: 0 0 0 2em;
-							text-align: left;
-							padding: 0;
-						}
+
 			#sidebar nav > ul > li {
 				-moz-transform: translateY(0);
 				-webkit-transform: translateY(0);
@@ -3604,7 +3597,15 @@
 				position: relative;
 			}
 				
-				
+				#sidebar nav>ul>li2 {
+							display: inline;
+							height: inherit;
+							line-height: inherit;
+							vertical-align: left;
+							padding: 0;
+							float: left;
+						}
+
 				#sidebar nav > ul > li:first-child {
 					margin: 0;
 				}
