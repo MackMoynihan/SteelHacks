@@ -49,6 +49,40 @@ public class Design extends AppCompatActivity {
 //        projNameView.setTextSize(40); // TODO look up TextView documentation to make it look better
 //        projNameView.setText(projName);
 //        layout.addView(projNameView);
+
+        layout.setOnDragListener(new View.OnDragListener() {
+            float xCoord = 0;
+            float yCoord = 0;
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                switch(event.getAction()) {
+                    case DragEvent.ACTION_DRAG_STARTED:
+                        break;
+                    case DragEvent.ACTION_DRAG_ENTERED:
+                        break;
+                    case DragEvent.ACTION_DRAG_EXITED:
+                        break;
+                    case DragEvent.ACTION_DRAG_LOCATION:
+                        xCoord = event.getX();
+                        yCoord = event.getY();
+                        Log.d("coord","x " + xCoord);
+                        Log.d("coord","y " + yCoord);
+                    case DragEvent.ACTION_DRAG_ENDED:
+                        break;
+                    case DragEvent.ACTION_DROP:
+                        View view = (View) event.getLocalState();
+                        ((ViewGroup) view.getParent()).removeView(view);
+                        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 400);
+                        params.leftMargin = (int) xCoord;
+                        params.topMargin = (int) yCoord;
+                        layout.addView(view, params);
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
     }
 
     @Override
@@ -93,6 +127,7 @@ public class Design extends AppCompatActivity {
                     Log.d("position", "0 received");
                     TextView text = new TextView(Design.this);
                     text.setText("TextView");
+                    text.setOnLongClickListener(listener);
                     RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 400);
                     params.leftMargin = 500;
                     params.topMargin = 600;
@@ -103,6 +138,7 @@ public class Design extends AppCompatActivity {
                     Log.d("position", "1 received");
                     ImageView img = new ImageView(Design.this);
                     img.setImageResource(R.drawable.sample_0);
+                    img.setOnLongClickListener(listener);
                     RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 400);
                     params.leftMargin = 500;
                     params.topMargin = 600;
@@ -113,6 +149,7 @@ public class Design extends AppCompatActivity {
                     Log.d("position", "2 received");
                     Button btn = new Button(Design.this);
                     btn.setText("test");
+                    btn.setOnLongClickListener(listener);
                     RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 400);
                     params.leftMargin = 500;
                     params.topMargin = 600;
@@ -122,6 +159,16 @@ public class Design extends AppCompatActivity {
                 default:
                     break;
             }
+        }
+    };
+
+    View.OnLongClickListener listener = new View.OnLongClickListener() {
+        @Override
+        public boolean onLongClick(View v) {
+            ClipData data = ClipData.newPlainText("", "");
+            View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+            v.startDrag(data, shadowBuilder, v, 0);
+            return true;
         }
     };
 
