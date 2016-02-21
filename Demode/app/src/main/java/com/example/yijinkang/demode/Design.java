@@ -1,12 +1,18 @@
 package com.example.yijinkang.demode;
 
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.ClipData;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.IntentFilter;
+import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.DragEvent;
@@ -16,6 +22,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.content.Intent;
@@ -23,13 +30,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class Design extends AppCompatActivity {
+public class Design extends AppCompatActivity implements EditTextDialog.EditTextDialogListener {
     RelativeLayout layout;
     int windowWidth;
     int windowHeight;
     int leftM;
     int topM;
     IntentFilter filter;
+    TextView textToEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,6 +162,14 @@ public class Design extends AppCompatActivity {
                     Log.d("position", "0 received");
                     TextView text = new TextView(Design.this);
                     text.setText("TextView");
+                    text.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            textToEdit = (TextView) v;
+                            DialogFragment newFragment = new EditTextDialog();
+                            newFragment.show(getSupportFragmentManager(), "edit_text");
+                        }
+                    });
                     text.setOnLongClickListener(listener);
                     RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 200);
                     Log.d("coords", leftM + ", " + topM);
@@ -255,4 +271,14 @@ public class Design extends AppCompatActivity {
         }
     };
 
+    public void showEditTextDialog() {
+        // Create an instance of the dialog fragment and show it
+        DialogFragment dialog = new EditTextDialog();
+        dialog.show(getSupportFragmentManager(), "EditTextDialog");
+    }
+
+    @Override
+    public void onDialogPositiveClick(DialogFragment dialog, CharSequence text) {
+        textToEdit.setText(text);
+    }
 }
