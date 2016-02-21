@@ -3107,7 +3107,7 @@
 		@media screen and (max-width: 1680px) {
 
 			.spotlights > section > .content {
-				padding: 4em 4em 2em 4em ;
+				padding: 2em 2em 1em 2em ;
 			}
 
 		}
@@ -3371,7 +3371,7 @@
 			-webkit-transition: opacity 1s ease;
 			-ms-transition: opacity 1s ease;
 			transition: opacity 1s ease;
-			opacity: 1.0;
+			opacity: 0;
 		}
 
 		.wrapper.fade.inactive > .inner, body.is-loading .wrapper.fade > .inner {
