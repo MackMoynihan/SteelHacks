@@ -43,45 +43,18 @@ public class Pop extends AppCompatActivity {
 
         gridview.setAdapter(new ImageAdapter(this));
 
-        gridview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                ClipData data = ClipData.newPlainText("", "");
-                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-                view.startDrag(data, shadowBuilder, view, 0);
-
-
-
-                Intent intent = exitPopup();
-                startActivity(intent);
-
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("click", position + " clicked");
+                Intent intent = new Intent();
+                intent.setAction("com.example.yijinkang.demode.addWidget");
+                intent.putExtra("newWidget", position);
+                sendBroadcast(intent);
+                finish();
 
 //                onStop();
-
-                return true;
             }
         });
     }
-
-//    OnDragListener dragListener = new OnDragListener() {
-//        @Override
-//        public boolean onDrag(View v, DragEvent event) {
-//
-//            return false;
-//        }
-//    };
-
-    public Intent exitPopup() {
-        return new Intent(this, Design.class);
-    }
-
-//    public boolean onDragEvent(DragEvent event) {
-//
-//        // TODO exit the popup and do stuff with the dragged thing
-//        Intent intent = new Intent(this, Design.class);
-//        intent.putExtra("Project Name", event);
-//        startActivity(intent);
-//        onStop();
-//        return true;
-//    }
 }
