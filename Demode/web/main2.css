@@ -3028,7 +3028,7 @@
 			border-radius: 0;
 			display: block;
 			position: relative;
-			width: 25em;
+			width: 15em;
 		}
 
 			.spotlights > section > .image img {
@@ -3047,9 +3047,9 @@
 				/*height: 100%;*/
 				left: 0;
 				opacity: 0;
-				position: absolute;
+				position: relative;
 				top: 0;
-				width:50% ;
+				width:100% ;
 			}
 
 		.spotlights > section > .content {
@@ -3066,7 +3066,7 @@
 			-webkit-justify-content: center;
 			-ms-justify-content: center;
 			justify-content: center;
-			width: 50em;
+			width: 65em;
 			-ms-flex: 1;
 		}
 
