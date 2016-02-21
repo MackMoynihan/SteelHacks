@@ -2589,15 +2589,19 @@
 /* Image */
 
 	.image {
-		border-radius: 0.25em;
-		border: 0;
+		/*border-radius: 0.25em;*/
+		border: 1;
 		display: inline-block;
 		position: relative;
 	}
 
 		.image img {
-			border-radius: 0.25em;
+			/*border-radius: 0.25em;*/
+			border: 10px;
+			margin: 20px;
 			display: block;
+			display: inline-block;
+			position: relative;
 		}
 
 		.image.left, .image.right {
@@ -3025,7 +3029,7 @@
 			border-radius: 0;
 			display: block;
 			position: relative;
-			width: 25em;
+			width: 17em;
 		}
 
 			.spotlights > section > .image img {
@@ -3139,7 +3143,7 @@
 			}
 
 			.spotlights > section > .content {
-				padding: 6em 4em 2em 4em ;
+				padding: 3em 2em 1em 2em ;
 			}
 
 		}
