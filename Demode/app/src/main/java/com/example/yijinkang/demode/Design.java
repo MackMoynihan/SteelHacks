@@ -1,26 +1,39 @@
 package com.example.yijinkang.demode;
 
 
+import android.content.BroadcastReceiver;
+import android.content.ClipData;
+import android.content.Context;
+import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ImageButton;
 import android.content.Intent;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class Design extends AppCompatActivity {
+    RelativeLayout layout;
+    IntentFilter filter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_design);
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.design);
+        filter = new IntentFilter();
 
+        layout = (RelativeLayout) findViewById(R.id.design);
         Intent intent = getIntent();
         String projName = intent.getStringExtra("Project Name");
 
@@ -38,6 +51,13 @@ public class Design extends AppCompatActivity {
 //        layout.addView(projNameView);
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        filter.addAction("com.example.yijinkang.demode.addWidget");
+        registerReceiver(rec, filter);
+        //the first parameter is the name of the inner class we created.
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -61,11 +81,48 @@ public class Design extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public boolean onDragEvent(DragEvent event) {
-        // TODO exit the popup and do stuff with the dragged thing
-        int contents = event.describeContents();
-
-        return true;
-    }
+    BroadcastReceiver rec = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.d("broadcast", "received");
+            int newWidget = intent.getIntExtra("newWidget", -1);
+            switch(newWidget) {
+                case -1:
+                    break;
+                case 0: {
+                    Log.d("position", "0 received");
+                    TextView text = new TextView(Design.this);
+                    text.setText("TextView");
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 400);
+                    params.leftMargin = 500;
+                    params.topMargin = 600;
+                    layout.addView(text, params);
+                    break;
+                }
+                case 1: {
+                    Log.d("position", "1 received");
+                    ImageView img = new ImageView(Design.this);
+                    img.setImageResource(R.drawable.sample_0);
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 400);
+                    params.leftMargin = 500;
+                    params.topMargin = 600;
+                    layout.addView(img, params);
+                    break;
+                }
+                case 2: {
+                    Log.d("position", "2 received");
+                    Button btn = new Button(Design.this);
+                    btn.setText("test");
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 400);
+                    params.leftMargin = 500;
+                    params.topMargin = 600;
+                    layout.addView(btn, params);
+                    break;
+                }
+                default:
+                    break;
+            }
+        }
+    };
 
 }

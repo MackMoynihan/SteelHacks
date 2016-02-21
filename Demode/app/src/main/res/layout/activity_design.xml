@@ -49,6 +49,4 @@
         android:backgroundTint="#a70000"
         android:src="@android:drawable/ic_input_get"/>
 
-
-
 </RelativeLayout>
