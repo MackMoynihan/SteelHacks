@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.IntentFilter;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.Menu;
@@ -24,6 +25,10 @@ import android.widget.TextView;
 
 public class Design extends AppCompatActivity {
     RelativeLayout layout;
+    int windowWidth;
+    int windowHeight;
+    int leftM;
+    int topM;
     IntentFilter filter;
 
     @Override
@@ -34,6 +39,17 @@ public class Design extends AppCompatActivity {
         filter = new IntentFilter();
 
         layout = (RelativeLayout) findViewById(R.id.design);
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        windowWidth = metrics.widthPixels;
+        windowHeight = metrics.heightPixels;
+        Log.d("size", windowWidth + " x " + windowHeight);
+
+        // for adding more Views
+        leftM = windowWidth/2 - 150;
+        topM = windowHeight/2 - 100;
+        Log.d("coords", leftM + ", " + topM);
+
         Intent intent = getIntent();
         String projName = intent.getStringExtra("Project Name");
 
@@ -71,10 +87,17 @@ public class Design extends AppCompatActivity {
                         break;
                     case DragEvent.ACTION_DROP:
                         View view = (View) event.getLocalState();
+                        int width = view.getWidth();
+                        int height = view.getHeight();
+                        int leftMargin = xCoord + width/2 < windowWidth ? (int) xCoord-width/2 : windowWidth - width;
+                        int topMargin = yCoord + height/2 < windowHeight ? (int) yCoord-height/2 : windowHeight - height;
+                        leftMargin = leftMargin < 0 ? 0 : leftMargin;
+                        topMargin = topMargin < 0 ? 0 : topMargin;
+
                         ((ViewGroup) view.getParent()).removeView(view);
-                        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 400);
-                        params.leftMargin = (int) xCoord;
-                        params.topMargin = (int) yCoord;
+                        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(width, height);
+                        params.leftMargin = leftMargin;
+                        params.topMargin = topMargin;
                         layout.addView(view, params);
                         break;
                     default:
@@ -120,6 +143,8 @@ public class Design extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             Log.d("broadcast", "received");
             int newWidget = intent.getIntExtra("newWidget", -1);
+            Log.d("coords", leftM + ", " + topM);
+
             switch(newWidget) {
                 case -1:
                     break;
@@ -128,9 +153,10 @@ public class Design extends AppCompatActivity {
                     TextView text = new TextView(Design.this);
                     text.setText("TextView");
                     text.setOnLongClickListener(listener);
-                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 400);
-                    params.leftMargin = 500;
-                    params.topMargin = 600;
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 200);
+                    Log.d("coords", leftM + ", " + topM);
+                    params.leftMargin = leftM;
+                    params.topMargin = topM;
                     layout.addView(text, params);
                     break;
                 }
@@ -139,9 +165,9 @@ public class Design extends AppCompatActivity {
                     ImageView img = new ImageView(Design.this);
                     img.setImageResource(R.drawable.sample_0);
                     img.setOnLongClickListener(listener);
-                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 400);
-                    params.leftMargin = 500;
-                    params.topMargin = 600;
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 200);
+                    params.leftMargin = leftM;
+                    params.topMargin = topM;
                     layout.addView(img, params);
                     break;
                 }
@@ -150,9 +176,9 @@ public class Design extends AppCompatActivity {
                     Button btn = new Button(Design.this);
                     btn.setText("test");
                     btn.setOnLongClickListener(listener);
-                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 400);
-                    params.leftMargin = 500;
-                    params.topMargin = 600;
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 200);
+                    params.leftMargin = leftM;
+                    params.topMargin = topM;
                     layout.addView(btn, params);
                     break;
                 }

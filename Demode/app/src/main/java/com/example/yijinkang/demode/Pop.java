@@ -52,8 +52,6 @@ public class Pop extends AppCompatActivity {
                 intent.putExtra("newWidget", position);
                 sendBroadcast(intent);
                 finish();
-
-//                onStop();
             }
         });
     }
