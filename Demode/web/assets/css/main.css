@@ -2600,8 +2600,8 @@
 			border: 10px;
 			margin: 20px;
 			display: block;
-			display: inline-block;
 			position: relative;
+			left: relative;
 		}
 
 		.image.left, .image.right {
@@ -3049,9 +3049,9 @@
 				/*height: 100%;*/
 				left: 0;
 				opacity: 0;
-				position: absolutre;
+				position: absolute;
 				top: 0;
-				width: 15em;
+				width: 20em;
 			}
 
 		.spotlights > section > .content {
@@ -3140,7 +3140,7 @@
 
 			.spotlights > section > .image {
 				height: 50vh;
-				min-height: 15em;
+				min-height: 25em;
 			}
 
 			.spotlights > section > .content {
