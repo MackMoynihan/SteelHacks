@@ -1,18 +1,13 @@
 package com.example.yijinkang.demode;
 
 
-import android.app.Activity;
-import android.app.Dialog;
 import android.content.BroadcastReceiver;
 import android.content.ClipData;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.IntentFilter;
 import android.support.v4.app.DialogFragment;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.InputType;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.DragEvent;
@@ -20,10 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ImageButton;
 import android.content.Intent;
 import android.widget.ImageView;
@@ -270,12 +262,6 @@ public class Design extends AppCompatActivity implements EditTextDialog.EditText
             return true;
         }
     };
-
-    public void showEditTextDialog() {
-        // Create an instance of the dialog fragment and show it
-        DialogFragment dialog = new EditTextDialog();
-        dialog.show(getSupportFragmentManager(), "EditTextDialog");
-    }
 
     @Override
     public void onDialogPositiveClick(DialogFragment dialog, CharSequence text) {

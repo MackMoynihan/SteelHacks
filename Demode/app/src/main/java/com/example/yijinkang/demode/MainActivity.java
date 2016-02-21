@@ -20,32 +20,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-
-//        FloatingActionButton imageButton4 = (FloatingActionButton)findViewById(R.id.imageButton4);
-//        imageButton4.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
-//        FloatingActionButton imageButton3 = (FloatingActionButton)findViewById(R.id.imageButton3);
-//        imageButton3.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
-//        FloatingActionButton imageButton2 = (FloatingActionButton)findViewById(R.id.imageButton2);
-//        imageButton2.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            }
-//        });
-
-
     }
 
     @Override
