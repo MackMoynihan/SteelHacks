@@ -61,6 +61,8 @@ public class Design extends AppCompatActivity {
                 startActivity(new Intent(Design.this , Pop.class) );
             }
         });
+
+
 //        TextView projNameView = new TextView(this);
 //        projNameView.setTextSize(40); // TODO look up TextView documentation to make it look better
 //        projNameView.setText(projName);
@@ -163,7 +165,7 @@ public class Design extends AppCompatActivity {
                 case 1: {
                     Log.d("position", "1 received");
                     ImageView img = new ImageView(Design.this);
-                    img.setImageResource(R.drawable.sample_0);
+                    img.setImageResource(R.drawable.image);
                     img.setOnLongClickListener(listener);
                     RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 200);
                     params.leftMargin = leftM;
