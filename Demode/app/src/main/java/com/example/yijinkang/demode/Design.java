@@ -184,9 +184,64 @@ public class Design extends AppCompatActivity {
                     layout.addView(btn, params);
                     break;
                 }
+                case 3: {
+                    Log.d("position", "3 received");
+                    ImageView img3 = new ImageView(Design.this);
+                    img3.setImageResource(R.drawable.textfield);
+                    img3.setOnLongClickListener(listener);
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 200);
+                    params.leftMargin = leftM;
+                    params.topMargin = topM;
+                    layout.addView(img3, params);
+                    break;
+                }
+                case 4: {
+                    Log.d("position", "4 received");
+                    ImageView img4 = new ImageView(Design.this);
+                    img4.setImageResource(R.drawable.list);
+                    img4.setOnLongClickListener(listener);
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 200);
+                    params.leftMargin = leftM;
+                    params.topMargin = topM;
+                    layout.addView(img4, params);
+                    break;
+                }
+                case 5: {
+                    Log.d("position", "5 received");
+                    ImageView img5 = new ImageView(Design.this);
+                    img5.setImageResource(R.drawable.menu);
+                    img5.setOnLongClickListener(listener);
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 200);
+                    params.leftMargin = leftM;
+                    params.topMargin = topM;
+                    layout.addView(img5, params);
+                    break;
+                }
+                case 6: {
+                    Log.d("position", "6 received");
+                    ImageView img6 = new ImageView(Design.this);
+                    img6.setImageResource(R.drawable.checkbox);
+                    img6.setOnLongClickListener(listener);
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 200);
+                    params.leftMargin = leftM;
+                    params.topMargin = topM;
+                    layout.addView(img6, params);
+                    break;
+                }
+                case 7: {
+                    Log.d("position", "7 received");
+                    ImageView img7 = new ImageView(Design.this);
+                    img7.setImageResource(R.drawable.radiobutton);
+                    img7.setOnLongClickListener(listener);
+                    RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(300, 200);
+                    params.leftMargin = leftM;
+                    params.topMargin = topM;
+                    layout.addView(img7, params);
+                    break;
+                }
                 default:
                     break;
-            }
+                }
         }
     };
 
