@@ -3029,7 +3029,7 @@
 			border-radius: 0;
 			display: block;
 			position: relative;
-			width: 17em;
+			width: 14em;
 		}
 
 			.spotlights > section > .image img {
@@ -3042,15 +3042,16 @@
 				-webkit-transition: opacity 1s ease;
 				-ms-transition: opacity 1s ease;
 				transition: opacity 1s ease;
+				position: relative;;
 				background: rgba(49, 36, 80, 0.9);
 				content: '';
 				display: block;
-				height: 100%;
+				/*height: 100%;*/
 				left: 0;
 				opacity: 0;
-				position: absolute;
+				position: absolutre;
 				top: 0;
-				width: 100%;
+				width: 15em;
 			}
 
 		.spotlights > section > .content {
