@@ -11,4 +11,6 @@
     <string name="title_activity_main">Demo\'d</string>
     <string name="title_popupwindow"></string>
     <string name="title_activity_object_selection">ObjectSelection</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="title_activity_splash">splash</string>
 </resources>
